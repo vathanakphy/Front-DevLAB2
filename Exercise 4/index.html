@@ -14,15 +14,15 @@
 
       <input type="password" name="password" id="passwordInput" class="input" />
 
-      <button id="checkButton">Check Code !</button>
+      <button id="checkButton" onclick="checkPass()">Check Code !</button>
     </main>
 
     <!-- Lost view -->
     <main id="lostView" style="display: none">
       <img src="./assets/explosion.png" />
       <h1>You lost !</h1>
-
-      <button id="tryAgainButton">Try again !</button>
+      <p id="remain"> </p>
+      <button id="tryAgainButton" onclick="backToInput()">Try again !</button>
     </main>
 
     <!-- Won view -->
