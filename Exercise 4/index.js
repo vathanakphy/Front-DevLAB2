@@ -14,10 +14,9 @@ function hide(element) {
   const lostView = document.getElementById("lostView");
   const passwordView = document.getElementById("passwordView");
   const tryAgain = document.getElementById("tryAgainButton");
-  const remainText = document.getElementById("remain");
-  remainText.style.color = "white";
-  remainText.style.fontSize = "1.5rem";
-  remainText.style.fontWeight = "bold"
+  tryAgain.style.color = "white";
+  tryAgain.style.fontSize = "1.5rem";
+  tryAgain.style.fontWeight = "bold"
   let incorrectCount = 3;
   
   function checkPass() {
@@ -31,9 +30,9 @@ function hide(element) {
       show(lostView);
       incorrectCount -= 1; 
       console.log(incorrectCount);
-      remainText.innerHTML = `Wrong code! Try again. (${incorrectCount} chances left)`;
+      tryAgain.innerHTML = `Try again ! (${incorrectCount} chances left)`;
       if (incorrectCount == 0) {    
-        remainText.remove();
+        tryAgain.remove();
         hide(tryAgain);
       }
     }
