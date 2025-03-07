@@ -8,24 +8,23 @@
 </head>
 <body>
   <div class="task-manager">
-    <div class="task-input">
+    <form>
       <label for="task">Task:</label>
       <input type="text" id="task" placeholder="Enter your task" />
-
+  
       <label for="priority">Priority:</label>
       <select id="priority">
         <option value="low">Low</option>
         <option value="high">High</option>
       </select>
+      <button class="btn add-task" id="add-t">Add task</button>
+      <div class="filters">
+        <button class="btn filter-btn" id="im-task">Show only the important tasks</button>
+        <button class="btn filter-btn" id="not-task" >Show the tasks that are not important</button>
+        <button class="btn filter-btn" id="all-task" >Show all the tasks</button>
+      </div>
+    </form>
 
-      <button class="btn add-task" onclick="addTask()">Add task</button>
-    </div>
-
-    <div class="filters">
-      <button class="btn filter-btn" onclick="displayImportantTasks()">Show only the important tasks</button>
-      <button class="btn filter-btn" onclick="displayNotImportantTasks()" >Show the tasks that are not important</button>
-      <button class="btn filter-btn"  onclick="displayTasks()">Show all the tasks</button>
-    </div>
     <hr>
     <ul class="tasks">
     </ul>

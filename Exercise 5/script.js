@@ -1,6 +1,12 @@
 // add task
-let tasks = [];
-function addTask(){
+const TASKS = [];
+document.getElementById("add-t").addEventListener("click",addTask)
+document.getElementById("im-task").addEventListener("click",displayImportantTasks)
+document.getElementById("not-task").addEventListener("click",displayNotImportantTasks)
+document.getElementById("all-task").addEventListener("click",displayTasks)
+
+function addTask(e){
+    e.preventDefault();
     let pirority = document.getElementById("priority").value;
     let prioriityValue = 0;
     if(pirority==='low'){
@@ -9,18 +15,24 @@ function addTask(){
         prioriityValue = 1;
     }
     let getTask = document.getElementById("task");
-    tasks.push(
-        {
-            description: getTask.value,
-            prioriity:prioriityValue
-        }
-    );
-    displayTasks(tasks)
+    if(getTask.value!==''){
+        TASKS.push(
+            {
+                description: getTask.value,
+                prioriity:prioriityValue
+            }
+        );
+    }else{
+        alert("Task must be fill");
+    }
+    getTask.value = "";
+    displayTasks(e)
 }
 let listTasks = document.getElementsByClassName('tasks')[0];
-function displayTasks(){
+function displayTasks(e){
+    e.preventDefault();
     refreshTask();
-    for(let task of tasks){
+    for(let task of TASKS){
         let list = document.createElement('li');
         list.classList.add("task");
         console.log(task['prioriity']);
@@ -36,9 +48,10 @@ function displayTasks(){
 function refreshTask(){
     listTasks.replaceChildren();
 }
-function displayImportantTasks(){
+function displayImportantTasks(e){
+    e.preventDefault();
     refreshTask();
-    for(let task of tasks){
+    for(let task of TASKS){
         if(task['prioriity'] === 1){
             let list = document.createElement('li');
             list.classList.add("task");
@@ -48,9 +61,10 @@ function displayImportantTasks(){
         }
     }
 }
-function displayNotImportantTasks(){
+function displayNotImportantTasks(e){
+    e.preventDefault();
     refreshTask();
-    for(let task of tasks){
+    for(let task of TASKS){
         if(task['prioriity'] === 0){
             let list = document.createElement('li');
             list.classList.add("task");
